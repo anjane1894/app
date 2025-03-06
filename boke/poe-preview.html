@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>播客应用原型</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f5f5f7;
+        }
+        .iphone-container {
+            width: 390px;
+            height: 844px;
+            background-color: white;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border: 1px solid #d1d1d6;
+        }
+        .status-bar {
+            height: 44px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 20;
+        }
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 30px;
+            background-color: #000;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+            z-index: 10;
+        }
+        .tab-bar {
+            height: 84px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 20;
+        }
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 80px;
+            font-size: 10px;
+            color: #8e8e93;
+            padding-bottom: 10px;
+        }
+        .tab-item.active {
+            color: #ff2d55;
+        }
+        .tab-icon {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+        .screen-container {
+            height: calc(100% - 128px);
+            overflow-y: hidden;
+            margin-top: 44px;
+        }
+        .prototype-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+            gap: 40px;
+            padding: 40px;
+        }
+        .prototype-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+    <h1 class="text-3xl font-bold text-center mb-8">播客应用原型设计</h1>
+    
+    <div class="prototype-grid">
+        <!-- 首页原型 -->
+        <div>
+            <div class="prototype-title">首页</div>
+            <div class="iphone-container">
+                <div class="notch"></div>
+                <div class="status-bar">
+                    <div>9:41</div>
+                    <div>
+                        <span class="mr-2"><i class="fas fa-signal"></i></span>
+                        <span class="mr-2"><i class="fas fa-wifi"></i></span>
+                        <span><i class="fas fa-battery-full"></i></span>
+                    </div>
+                </div>
+                <iframe src="home.html" frameborder="0" width="100%" height="100%" class="screen-container"></iframe>
+                <div class="tab-bar">
+                    <div class="tab-item active">
+                        <i class="tab-icon fas fa-home"></i>
+                        <span>首页</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-compass"></i>
+                        <span>发现</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-play-circle"></i>
+                        <span>播放</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-user"></i>
+                        <span>我的</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 发现页原型 -->
+        <div>
+            <div class="prototype-title">发现页</div>
+            <div class="iphone-container">
+                <div class="notch"></div>
+                <div class="status-bar">
+                    <div>9:41</div>
+                    <div>
+                        <span class="mr-2"><i class="fas fa-signal"></i></span>
+                        <span class="mr-2"><i class="fas fa-wifi"></i></span>
+                        <span><i class="fas fa-battery-full"></i></span>
+                    </div>
+                </div>
+                <iframe src="discover.html" frameborder="0" width="100%" height="100%" class="screen-container"></iframe>
+                <div class="tab-bar">
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-home"></i>
+                        <span>首页</span>
+                    </div>
+                    <div class="tab-item active">
+                        <i class="tab-icon fas fa-compass"></i>
+                        <span>发现</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-play-circle"></i>
+                        <span>播放</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-user"></i>
+                        <span>我的</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 播放器原型 -->
+        <div>
+            <div class="prototype-title">播放器</div>
+            <div class="iphone-container">
+                <div class="notch"></div>
+                <div class="status-bar">
+                    <div>9:41</div>
+                    <div>
+                        <span class="mr-2"><i class="fas fa-signal"></i></span>
+                        <span class="mr-2"><i class="fas fa-wifi"></i></span>
+                        <span><i class="fas fa-battery-full"></i></span>
+                    </div>
+                </div>
+                <iframe src="player.html" frameborder="0" width="100%" height="100%" class="screen-container"></iframe>
+                <div class="tab-bar">
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-home"></i>
+                        <span>首页</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-compass"></i>
+                        <span>发现</span>
+                    </div>
+                    <div class="tab-item active">
+                        <i class="tab-icon fas fa-play-circle"></i>
+                        <span>播放</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-user"></i>
+                        <span>我的</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 我的页面原型 -->
+        <div>
+            <div class="prototype-title">我的</div>
+            <div class="iphone-container">
+                <div class="notch"></div>
+                <div class="status-bar">
+                    <div>9:41</div>
+                    <div>
+                        <span class="mr-2"><i class="fas fa-signal"></i></span>
+                        <span class="mr-2"><i class="fas fa-wifi"></i></span>
+                        <span><i class="fas fa-battery-full"></i></span>
+                    </div>
+                </div>
+                <iframe src="profile.html" frameborder="0" width="100%" height="100%" class="screen-container"></iframe>
+                <div class="tab-bar">
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-home"></i>
+                        <span>首页</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-compass"></i>
+                        <span>发现</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-play-circle"></i>
+                        <span>播放</span>
+                    </div>
+                    <div class="tab-item active">
+                        <i class="tab-icon fas fa-user"></i>
+                        <span>我的</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 设置页面原型 -->
+        <div>
+            <div class="prototype-title">设置</div>
+            <div class="iphone-container">
+                <div class="notch"></div>
+                <div class="status-bar">
+                    <div>9:41</div>
+                    <div>
+                        <span class="mr-2"><i class="fas fa-signal"></i></span>
+                        <span class="mr-2"><i class="fas fa-wifi"></i></span>
+                        <span><i class="fas fa-battery-full"></i></span>
+                    </div>
+                </div>
+                <iframe src="settings.html" frameborder="0" width="100%" height="100%" class="screen-container"></iframe>
+                <div class="tab-bar">
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-home"></i>
+                        <span>首页</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-compass"></i>
+                        <span>发现</span>
+                    </div>
+                    <div class="tab-item">
+                        <i class="tab-icon fas fa-play-circle"></i>
+                        <span>播放</span>
+                    </div>
+                    <div class="tab-item active">
+                        <i class="tab-icon fas fa-user"></i>
+                        <span>我的</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body></html>

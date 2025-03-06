@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #1a0b2e, #3b1a5a, #6b48a8);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0; /* 粒子在背景层 */
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 1; /* 确保内容在粒子之上 */
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    margin-bottom: 40px;
+}
+
+.crystal-ball {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5));
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(107, 72, 168, 0.8);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.crystal-ball:hover {
+    transform: scale(1.1);
+}
+
+.crystal-ball.active {
+    animation: shake 0.8s ease, colorShift 0.8s ease; /* 添加颜色渐变动画 */
+}
+
+@keyframes colorShift {
+    0% { background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5)); }
+    25% { background: radial-gradient(circle, rgba(150, 100, 255, 0.4), rgba(0, 0, 50, 0.6)); }
+    50% { background: radial-gradient(circle, rgba(200, 150, 255, 0.5), rgba(50, 0, 100, 0.7)); }
+    75% { background: radial-gradient(circle, rgba(255, 200, 255, 0.4), rgba(100, 0, 150, 0.6)); }
+    100% { background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5)); }
+}
+
+.ball-inner {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 50%;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
+    100% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.6); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0) rotate(0deg); }
+    20% { transform: translateX(-30px) rotate(-10deg); }
+    40% { transform: translateX(30px) rotate(10deg); }
+    60% { transform: translateX(-20px) rotate(-5deg); }
+    80% { transform: translateX(20px) rotate(5deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+}
+
+button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background: #6b48a8;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(107, 72, 168, 0.5);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #8a63d2;
+    box-shadow: 0 0 30px rgba(138, 99, 210, 0.8);
+    transform: translateY(-5px);
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 1.5em;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    position: relative;
+    z-index: 2;
+}
+
+#result.show {
+    opacity: 1 !important;
+}
+
+.interpretation {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #e0d0ff;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.interpretation.show {
+    opacity: 1 !important;
+}

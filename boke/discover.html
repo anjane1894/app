@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发现</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+            background-color: #f8f8f8;
+        }
+        .category-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .podcast-image {
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .search-bar {
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .mini-player {
+            border-radius: 16px;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            height: 3px;
+            border-radius: 2px;
+            background-color: #e5e5ea;
+        }
+        .progress-indicator {
+            height: 3px;
+            border-radius: 2px;
+            background-color: #ff2d55;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-5 pb-24">
+        <!-- 头部导航 -->
+        <div class="pt-3 pb-4">
+            <h1 class="text-2xl font-bold">发现</h1>
+        </div>
+        
+        <!-- 搜索栏 -->
+        <div class="mb-6">
+            <div class="bg-white flex items-center p-3 search-bar">
+                <i class="fas fa-search text-gray-400 mr-2"></i>
+                <input type="text" placeholder="搜索播客、主播或内容" class="w-full outline-none text-sm">
+            </div>
+        </div>
+        
+        <!-- 主题分类 -->
+        <div class="mb-8">
+            <h2 class="text-xl font-bold mb-4">主题分类</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="category-card bg-gradient-to-br from-blue-400 to-blue-600 text-white p-4 flex flex-col justify-between" style="height: 120px;">
+                    <i class="fas fa-briefcase text-3xl mb-2 opacity-80"></i>
+                    <span class="text-lg font-bold">商业</span>
+                </div>
+                <div class="category-card bg-gradient-to-br from-purple-400 to-purple-600 text-white p-4 flex flex-col justify-between" style="height: 120px;">
+                    <i class="fas fa-microchip text-3xl mb-2 opacity-80"></i>
+                    <span class="text-lg font-bold">科技</span>
+                </div>
+                <div class="category-card bg-gradient-to-br from-green-400 to-green-600 text-white p-4 flex flex-col justify-between" style="height: 120px;">
+                    <i class="fas fa-brain text-3xl mb-2 opacity-80"></i>
+                    <span class="text-lg font-bold">知识</span>
+                </div>
+                <div class="category-card bg-gradient-to-br from-yellow-400 to-yellow-600 text-white p-4 flex flex-col justify-between" style="height: 120px;">
+                    <i class="fas fa-heart text-3xl mb-2 opacity-80"></i>
+                    <span class="text-lg font-bold">健康</span>
+                </div>
+                <div class="category-card bg-gradient-to-br from-red-400 to-red-600 text-white p-4 flex flex-col justify-between" style="height: 120px;">
+                    <i class="fas fa-music text-3xl mb-2 opacity-80"></i>
+                    <span class="text-lg font-bold">音乐</span>
+                </div>
+                <div class="category-card bg-gradient-to-br from-indigo-400 to-indigo-600 text-white p-4 flex flex-col justify-between" style="height: 120px;">
+                    <i class="fas fa-film text-3xl mb-2 opacity-80"></i>
+                    <span class="text-lg font-bold">娱乐</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 热门排行 -->
+        <div class="mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">热门排行</h2>
+                <a href="#" class="text-pink-500 text-sm font-medium">查看全部</a>
+            </div>
+            <div class="space-y-4">
+                <div class="flex bg-white p-3 rounded-lg items-center">
+                    <div class="w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center mr-3 font-bold text-sm">1</div>
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="播客图片" class="w-12 h-12 rounded-md mr-3">
+                    <div class="flex-1">
+                        <h3 class="font-semibold">科技早知道</h3>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span>4.9</span>
+                            <div class="flex ml-1 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2">12.5万订阅</span>
+                        </div>
+                    </div>
+                    <button class="text-pink-500 px-3 py-1 rounded-full border border-pink-500 text-xs font-medium">订阅</button>
+                </div>
+                
+                <div class="flex bg-white p-3 rounded-lg items-center">
+                    <div class="w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center mr-3 font-bold text-sm">2</div>
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="播客图片" class="w-12 h-12 rounded-md mr-3">
+                    <div class="flex-1">
+                        <h3 class="font-semibold">财经有话说</h3>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span>4.8</span>
+                            <div class="flex ml-1 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="ml-2">8.7万订阅</span>
+                        </div>
+                    </div>
+                    <button class="text-pink-500 px-3 py-1 rounded-full border border-pink-500 text-xs font-medium">订阅</button>
+                </div>
+                
+                <div class="flex bg-white p-3 rounded-lg items-center">
+                    <div class="w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center mr-3 font-bold text-sm">3</div>
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="播客图片" class="w-12 h-12 rounded-md mr-3">
+                    <div class="flex-1">
+                        <h3 class="font-semibold">职场进化论</h3>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span>4.7</span>
+                            <div class="flex ml-1 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="ml-2">6.3万订阅</span>
+                        </div>
+                    </div>
+                    <button class="text-pink-500 px-3 py-1 rounded-full border border-pink-500 text-xs font-medium">订阅</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 精选专题 -->
+        <div class="mb-8">
+            <h2 class="text-xl font-bold mb-4">精选专题</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1544725121-be3bf52e2dc8?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="专题封面" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">创业者的思维升级</h3>
+                        <p class="text-gray-600 text-sm mb-2">10集系列，带你从0到1建立创业思维框架</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">12位主播参与</span>
+                            <button class="text-pink-500 px-3 py-1 rounded-full border border-pink-500 text-xs font-medium">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="专题封面" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">心理健康月</h3>
+                        <p class="text-gray-600 text-sm mb-2">8集系列，科学管理情绪与压力</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">8位主播参与</span>
+                            <button class="text-pink-500 px-3 py-1 rounded-full border border-pink-500 text-xs font-medium">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 小型播放器 -->
+    <div class="fixed bottom-20 left-0 right-0 flex items-center bg-white mini-player mx-4 p-3">
+        <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="当前播放" class="w-10 h-10 rounded-lg mr-3">
+        <div class="flex-1">
+            <h4 class="font-medium text-sm">创业内幕</h4>
+            <div class="progress-bar mt-1">
+                <div class="progress-indicator"></div>
+            </div>
+        </div>
+        <button class="mx-3 text-pink-500">
+            <i class="fas fa-pause-circle text-xl"></i>
+        </button>
+        <button class="text-gray-500">
+            <i class="fas fa-forward text-sm"></i>
+        </button>
+    </div>
+
+
+</body></html>

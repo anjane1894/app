@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+            background-color: #f8f8f8;
+        }
+        .section-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .podcast-image {
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .mini-player {
+            border-radius: 16px;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            height: 3px;
+            border-radius: 2px;
+            background-color: #e5e5ea;
+        }
+        .progress-indicator {
+            height: 3px;
+            border-radius: 2px;
+            background-color: #ff2d55;
+            width: 30%;
+        }
+        .menu-item {
+            padding: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-5 pb-24">
+        <!-- 头部导航 -->
+        <div class="flex justify-between items-center pt-3 pb-4">
+            <h1 class="text-2xl font-bold">我的</h1>
+            <div class="flex">
+                <button class="mr-4 text-gray-600">
+                    <i class="fas fa-history text-lg"></i>
+                </button>
+                <button class="text-gray-600">
+                    <i class="fas fa-cog text-lg"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 用户信息 -->
+        <div class="flex items-center mb-8">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="用户头像" class="w-16 h-16 rounded-full border-2 border-white shadow-md mr-4">
+            <div>
+                <h2 class="font-bold text-lg">李小花</h2>
+                <p class="text-gray-600 text-sm">已听播客 128 小时</p>
+            </div>
+        </div>
+        
+        <!-- 订阅与收藏 -->
+        <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="bg-white rounded-lg p-4 text-center">
+                <h3 class="text-xl font-bold text-pink-500">25</h3>
+                <p class="text-sm text-gray-600">我的订阅</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 text-center">
+                <h3 class="text-xl font-bold text-pink-500">86</h3>
+                <p class="text-sm text-gray-600">已收藏</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 text-center">
+                <h3 class="text-xl font-bold text-pink-500">12</h3>
+                <p class="text-sm text-gray-600">已下载</p>
+            </div>
+        </div>
+        
+        <!-- 我的订阅 -->
+        <div class="mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">我的订阅</h2>
+                <a href="#" class="text-pink-500 text-sm font-medium">查看全部</a>
+            </div>
+            <div class="flex overflow-x-auto space-x-4 pb-2 -mx-5 px-5">
+                <div class="flex flex-col items-center" style="min-width: 80px;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 mb-2 flex items-center justify-center text-white">
+                        <i class="fas fa-microphone text-lg"></i>
+                    </div>
+                    <p class="text-xs text-center font-medium">科技早知道</p>
+                </div>
+                <div class="flex flex-col items-center" style="min-width: 80px;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 mb-2 flex items-center justify-center text-white">
+                        <i class="fas fa-chart-line text-lg"></i>
+                    </div>
+                    <p class="text-xs text-center font-medium">财经有话说</p>
+                </div>
+                <div class="flex flex-col items-center" style="min-width: 80px;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-green-600 mb-2 flex items-center justify-center text-white">
+                        <i class="fas fa-brain text-lg"></i>
+                    </div>
+                    <p class="text-xs text-center font-medium">心理学解码</p>
+                </div>
+                <div class="flex flex-col items-center" style="min-width: 80px;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 mb-2 flex items-center justify-center text-white">
+                        <i class="fas fa-book text-lg"></i>
+                    </div>
+                    <p class="text-xs text-center font-medium">读书会</p>
+                </div>
+                <div class="flex flex-col items-center" style="min-width: 80px;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-red-400 to-red-600 mb-2 flex items-center justify-center text-white">
+                        <i class="fas fa-lightbulb text-lg"></i>
+                    </div>
+                    <p class="text-xs text-center font-medium">创业内幕</p>
+                </div>
+                <div class="flex flex-col items-center" style="min-width: 80px;">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 mb-2 flex items-center justify-center text-white">
+                        <i class="fas fa-briefcase text-lg"></i>
+                    </div>
+                    <p class="text-xs text-center font-medium">职场进化论</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 最近收听 -->
+        <div class="mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">最近收听</h2>
+                <a href="#" class="text-pink-500 text-sm font-medium">查看历史</a>
+            </div>
+            <div class="space-y-4">
+                <div class="flex bg-white p-3 rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="播客图片" class="w-16 h-16 rounded-lg mr-3 podcast-image">
+                    <div class="flex-1">
+                        <h3 class="font-semibold">创业内幕</h3>
+                        <p class="text-sm text-gray-600 mb-1">第45期：从0到1的产品思维</p>
+                        <div class="flex justify-between items-center">
+                            <div class="w-24 h-1 bg-gray-200 rounded-full">
+                                <div class="w-12 h-1 bg-pink-500 rounded-full"></div>
+                            </div>
+                            <span class="text-xs text-gray-500">45%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex bg-white p-3 rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="播客图片" class="w-16 h-16 rounded-lg mr-3 podcast-image">
+                    <div class="flex-1">
+                        <h3 class="font-semibold">读书会</h3>
+                        <p class="text-sm text-gray-600 mb-1">第32期：深度解读《原则》</p>
+                        <div class="flex justify-between items-center">
+                            <div class="w-24 h-1 bg-gray-200 rounded-full">
+                                <div class="w-20 h-1 bg-pink-500 rounded-full"></div>
+                            </div>
+                            <span class="text-xs text-gray-500">78%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 功能菜单 -->
+        <div class="section-card bg-white mb-8">
+            <div class="menu-item flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-download text-lg text-gray-500 mr-3"></i>
+                    <span>我的下载</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+            </div>
+            <div class="menu-item flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-star text-lg text-gray-500 mr-3"></i>
+                    <span>我的收藏</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+            </div>
+            <div class="menu-item flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-history text-lg text-gray-500 mr-3"></i>
+                    <span>收听历史</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+            </div>
+        </div>
+        
+        <div class="section-card bg-white mb-8">
+            <div class="menu-item flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-user-friends text-lg text-gray-500 mr-3"></i>
+                    <span>添加好友</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+            </div>
+            <div class="menu-item flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-share-alt text-lg text-gray-500 mr-3"></i>
+                    <span>分享应用</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 小型播放器 -->
+    <div class="fixed bottom-20 left-0 right-0 flex items-center bg-white mini-player mx-4 p-3">
+        <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="当前播放" class="w-10 h-10 rounded-lg mr-3">
+        <div class="flex-1">
+            <h4 class="font-medium text-sm">创业内幕</h4>
+            <div class="progress-bar mt-1">
+                <div class="progress-indicator"></div>
+            </div>
+        </div>
+        <button class="mx-3 text-pink-500">
+            <i class="fas fa-pause-circle text-xl"></i>
+        </button>
+        <button class="text-gray-500">
+            <i class="fas fa-forward text-sm"></i>
+        </button>
+    </div>
+
+
+</body></html>
